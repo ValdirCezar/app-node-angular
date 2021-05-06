@@ -1,14 +1,23 @@
 const express = require('express');
+const Sequelize = require('sequelize');
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  return res.json({ message: "App works!" })
+// DB connection
+const sequelize = new Sequelize('test', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql'
 })
 
-  .listen(PORT, () => {
-    console.log("\nServer running: http://localhost:3000");
-  })
+app.get("/todo", (req, res) => {
+  req.body
+  return 
+})
+
+// Start server
+app.listen(PORT, () => {
+  console.log("\nServer running: http://localhost:3000");
+})
