@@ -6,6 +6,9 @@
   "repository": "https://github.com/ValdirCezar/blog-node.git",
   "author": "Valdir Cezar <valdircezar312@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.17.1"
   },
