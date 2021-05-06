@@ -9,10 +9,13 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/todos', (req, res) => {
+    const tittle = req.body.tittle
+    const describe = req.body.describe
+    const userId = req.body.userId
   Todo.create({
-    tittle: req.body.tittle,
-    describe: req.body.describe,
-    userId: req.body.userId
+    tittle: tittle,
+    describe: describe,
+    userId: userId
   }).then(() => {
     return res.json({ message: "Todo succesful created" })
   }).catch((err) => {

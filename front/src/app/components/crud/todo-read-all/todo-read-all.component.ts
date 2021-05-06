@@ -22,6 +22,7 @@ export class TodoReadAllComponent implements OnInit {
   }
 
   create(): void {
+    console.log(this.todo)
     this.service.create(this.todo).subscribe((response) => {
       console.log(response)
     })
