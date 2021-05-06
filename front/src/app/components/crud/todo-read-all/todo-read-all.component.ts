@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from 'src/app/models/Todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-read-all',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoReadAllComponent implements OnInit {
 
-  constructor() { }
+  todo: Todo = {
+    id: '',
+    tittle: '',
+    description: '',
+    idUser: ''
+  }
+
+  constructor(private service: TodoService) { }
 
   ngOnInit(): void {
+  }
+
+  create(): void {
+    this.service.create(this.todo).subscribe((response) => {
+      console.log(response)
+    })
   }
 
 }
