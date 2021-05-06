@@ -1,0 +1,17 @@
+.content {
+  width: 60%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+#formControlTextarea {
+  max-height: 5rem;
+}
+
+.btn {
+  width: 100%;
+}
