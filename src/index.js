@@ -1,10 +1,12 @@
 const express = require('express');
 const Todo = require('./models/Todo')
+const cors = require('cors')
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(cors());
 
 app.post('/todos', (req, res) => {
   Todo.create({
