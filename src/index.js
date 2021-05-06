@@ -6,13 +6,9 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  return res.sendFile(__dirname + "/html/index.html");
+  return res.json({ message: "App works!" })
 })
 
-app.get("/about", (req, res) => {
-  return res.sendFile(__dirname + "/html/about.html")
-})
-
-app.listen(PORT, () => {
-  console.log("Server running: http://localhost:3000");
-})
+  .listen(PORT, () => {
+    console.log("Server running: http://localhost:3000");
+  })
