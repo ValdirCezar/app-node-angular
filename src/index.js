@@ -6,7 +6,11 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  return res.json({ message: "App works!" })
+  return res.sendFile(__dirname + "/html/index.html");
+})
+
+app.get("/about", (req, res) => {
+  return res.sendFile(__dirname + "/html/about.html")
 })
 
 app.listen(PORT, () => {
