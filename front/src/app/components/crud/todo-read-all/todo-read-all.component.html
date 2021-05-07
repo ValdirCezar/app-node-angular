@@ -1,12 +1,35 @@
 <div class="content">
-  <h1>My todo application</h1>
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Tittle</label>
-    <input [(ngModel)]="todo.tittle" name="tittle" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Learn Node.js">
+  <div class="form">
+    <h1>My todo application</h1>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Tittle</label>
+      <input [(ngModel)]="todo.tittle" name="tittle" type="email" class="form-control" id="exampleFormControlInput1"
+        placeholder="Learn Node.js">
+    </div>
+    <div class="mb-3">
+      <label for="formControlTextarea" class="form-label">Description</label>
+      <textarea [(ngModel)]="todo.description" name="description" class="form-control" id="formControlTextarea"
+        rows="3"></textarea>
+    </div>
+    <button (click)="create()" type="button" class="btn btn-primary">Create</button>
   </div>
-  <div class="mb-3">
-    <label for="formControlTextarea" class="form-label">Description</label>
-    <textarea [(ngModel)]="todo.description" name="description" class="form-control" id="formControlTextarea" rows="3"></textarea>
-  </div>
-  <button (click)="create()" type="button" class="btn btn-primary">Create</button>
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tittle</th>
+        <th scope="col">Description</th>
+        <th scope="col">Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of list">
+        <th scope="row">{{ todo.id }}</th>
+        <td>{{ todo.tittle }}</td>
+        <td>{{ todo.description }}</td>
+        <td>{{ todo.createdAt }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
 import { TodoService } from 'src/app/services/todo.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-todo-read-all',
@@ -9,22 +10,36 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class TodoReadAllComponent implements OnInit {
 
+  datepipe: DatePipe = new DatePipe('pt-BR');
+
   todo: Todo = {
     id: '',
     tittle: '',
     description: '',
-    idUser: ''
+    idUser: '1'
   }
 
-  constructor(private service: TodoService) { }
+  list: Todo[] = []
+
+  constructor(private service: TodoService, public datePipe: DatePipe) { }
 
   ngOnInit(): void {
+    this.findAll();
   }
 
   create(): void {
-    console.log(this.todo)
     this.service.create(this.todo).subscribe((response) => {
-      console.log(response)
+      this.findAll();
+    })
+  }
+
+  findAll(): void {
+    this.service.findAll().subscribe(resposta => {
+      resposta.forEach(todo => {
+        const dt = new Date(todo.createdAt);
+        todo.createdAt = dt.toLocaleString();
+      })
+      this.list = resposta;
     })
   }
 

@@ -8,14 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/template/home/home.component';
 import { TodoReadAllComponent } from './components/crud/todo-read-all/todo-read-all.component';
-import { TodoTableComponent } from './components/crud/todo-table/todo-table.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TodoReadAllComponent,
-    TodoTableComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +22,9 @@ import { TodoTableComponent } from './components/crud/todo-table/todo-table.comp
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

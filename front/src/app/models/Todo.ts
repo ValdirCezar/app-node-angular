@@ -1,6 +1,8 @@
 export interface Todo {
-  id?: String,
-  tittle: String,
-  description: String,
-  idUser?: String
+  id?: string,
+  tittle: string,
+  description: string,
+  idUser?: string,
+  createdAt?: any,
+  updatedAt?: any
 }
