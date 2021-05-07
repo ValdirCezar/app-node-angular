@@ -10,15 +10,20 @@ app.use(cors());
 
 app.post('/todos', (req, res) => {
 
-  Todo.create({
-    tittle: req.body.tittle,
-    description: req.body.description,
-    userId: req.body.userId
-  }).then(() => {
-    return res.json({ message: "Todo successful created" })
-  }).catch((err) => {
-    return res.json({ message: `Error create Todo ${err}` })
-  });
+  if (req.body.tittle.length < 3 || req.body.description.length < 3) {
+    return res.status(400).json({ message: "The minimum length for fields should be 3 characters" })
+  } else {
+    Todo.create({
+      tittle: req.body.tittle,
+      description: req.body.description,
+      userId: req.body.userId
+    }).then(() => {
+      return res.json({ message: "Todo successful created" })
+    }).catch(() => {
+      return res.status(500).json({ message: `Internal server error` })
+    });
+  }
+
 })
 
 app.get("/todos", (req, res) => {

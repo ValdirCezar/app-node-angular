@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+.elevation-z4 {
+    -webkit-box-shadow: 0px 10px 13px -7px #383737, 1px 1px 27px 11px rgba(206, 206, 206, 0);
+    box-shadow: 0px 10px 13px -7px #383737, 1px 1px 27px 11px rgba(206, 206, 206, 0);
+}

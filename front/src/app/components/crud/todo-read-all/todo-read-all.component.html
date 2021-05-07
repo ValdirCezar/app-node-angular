@@ -3,18 +3,18 @@
     <h1>My todo application</h1>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Tittle</label>
-      <input [(ngModel)]="todo.tittle" name="tittle" type="email" class="form-control" id="exampleFormControlInput1"
+      <input [(ngModel)]="todo.tittle" name="tittle" type="email" class="form-control elevation-z4" id="exampleFormControlInput1"
         placeholder="Learn Node.js">
     </div>
     <div class="mb-3">
       <label for="formControlTextarea" class="form-label">Description</label>
-      <textarea [(ngModel)]="todo.description" name="description" class="form-control" id="formControlTextarea"
+      <textarea [(ngModel)]="todo.description" name="description" class="form-control elevation-z4" id="formControlTextarea"
         rows="3"></textarea>
     </div>
-    <button (click)="create()" type="button" class="btn btn-primary">Create</button>
+    <button (click)="create()" type="button" class="btn btn-primary elevation-z4">Create</button>
   </div>
 
-  <table class="table">
+  <table class="table elevation-z4">
     <thead class="table-dark">
       <tr>
         <th scope="col">ID</th>

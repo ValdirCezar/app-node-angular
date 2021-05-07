@@ -30,6 +30,11 @@ export class TodoReadAllComponent implements OnInit {
   create(): void {
     this.service.create(this.todo).subscribe((response) => {
       this.findAll();
+      this.showToastrSuccess("Successfuly create To-do", "Create", 4000);
+    }, err => {
+      console.log(err);
+      
+      this.showToastrError(err.error.message, "Create", 4000);
     })
   }
 
@@ -46,10 +51,19 @@ export class TodoReadAllComponent implements OnInit {
   delete(todo: Todo): void {
     this.service.delete(todo.id!).subscribe((response) => {
       this.findAll()
-      this.showToastr();
+      this.showToastrSuccess("Successfuly deleting To-do", "Delete", 4000);
     })
   }
-  showToastr() {
-    this.toastr.success("Successfuly delete To-do", '', {})
+
+  showToastrSuccess(description: string, tittle: string, time: any) {
+    this.toastr.success(description, tittle, {
+      timeOut: time
+    })
+  }
+
+  showToastrError(description: string, tittle: string, time: any) {
+    this.toastr.error(description, tittle, {
+      timeOut: time,
+    })
   }
 }

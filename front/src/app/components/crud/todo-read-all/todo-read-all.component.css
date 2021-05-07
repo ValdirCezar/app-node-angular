@@ -1,28 +1,31 @@
 .content {
-  width: 60%;
-  margin: auto;
-  margin-top: 1rem;
+    width: 60%;
+    margin: auto;
+    margin-top: 1rem;
 }
 
-
 h1 {
-  text-align: center;
+    text-align: center;
+    font-weight: bolder;
+    color: #222121;
+    background: #ffffff;
+    text-shadow: 1px 3px 0 #969696, 1px 10px 5px #aba8a8;
 }
 
 #formControlTextarea {
-  max-height: 5rem;
+    max-height: 5rem;
 }
 
 .btn {
-  width: 100%;
+    width: 100%;
 }
 
 .table {
-  margin-top: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .actions {
-  padding: 0;
-  width: 5px;
-  text-align: center;
+    padding: 0;
+    width: 5px;
+    text-align: center;
 }
