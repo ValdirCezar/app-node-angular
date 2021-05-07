@@ -13,11 +13,16 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
-  create(todo: Todo):Observable<Todo> {
+  create(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.baseUrl, todo);
   }
 
-  findAll():Observable<Todo[]>{
+  findAll(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.baseUrl)
+  }
+
+  delete(id: String): Observable<void> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.delete<void>(url);
   }
 }

@@ -1,0 +1,26 @@
+To create a Toastr in Bootstrap
+
+1º npm install ngx-toastr --save
+
+2º npm install @angular/animations --save
+
+3º On angular.json add in styles
+
+"styles": [
+  "node_modules/ngx-toastr/toastr.css" // try adding '../' if you're using angular cli before 6
+]
+
+4º On app.modules.ts import 
+
+  -- import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  -- import { ToastrModule } from 'ngx-toastr';
+
+5º Use
+
+import { ToastrService } from 'ngx-toastr';
+
+constructor(private toastr: ToastrService) { }
+
+this.toastr.{method}
+
+Methods in: https://www.npmjs.com/package/ngx-toastr

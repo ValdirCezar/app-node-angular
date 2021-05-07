@@ -27,6 +27,18 @@ app.get("/todos", (req, res) => {
   })
 })
 
+app.delete("/todos/:id", (req, res) => {
+  Todo.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(() => {
+    return res.json({ message: "Deleted" })
+  }).catch((err) => {
+    return res.json({ message: "Error" })
+  })
+})
+
 // Start server
 app.listen(PORT, () => {
   console.log("\nServer running: http://localhost:3000");

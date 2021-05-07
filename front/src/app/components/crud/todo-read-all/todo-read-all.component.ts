@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Todo } from 'src/app/models/Todo';
 import { TodoService } from 'src/app/services/todo.service';
-import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-todo-read-all',
@@ -9,8 +9,6 @@ import { DatePipe } from '@angular/common'
   styleUrls: ['./todo-read-all.component.css']
 })
 export class TodoReadAllComponent implements OnInit {
-
-  datepipe: DatePipe = new DatePipe('pt-BR');
 
   todo: Todo = {
     id: '',
@@ -21,7 +19,9 @@ export class TodoReadAllComponent implements OnInit {
 
   list: Todo[] = []
 
-  constructor(private service: TodoService, public datePipe: DatePipe) { }
+  constructor(
+    private service: TodoService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -43,4 +43,13 @@ export class TodoReadAllComponent implements OnInit {
     })
   }
 
+  delete(todo: Todo): void {
+    this.service.delete(todo.id!).subscribe((response) => {
+      this.findAll()
+      this.showToastr();
+    })
+  }
+  showToastr() {
+    this.toastr.success("Successfuly delete To-do", '', {})
+  }
 }
