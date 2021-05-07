@@ -19,3 +19,9 @@ h1 {
 .table {
   margin-top: 1.5rem;
 }
+
+.actions {
+  padding: 0;
+  width: 5px;
+  text-align: center;
+}
