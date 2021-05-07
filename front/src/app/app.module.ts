@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/template/home/home.component';
 import { TodoReadAllComponent } from './components/crud/todo-read-all/todo-read-all.component';
 import { DatePipe } from '@angular/common';
+import { FooterComponent } from './components/template/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TodoReadAllComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
